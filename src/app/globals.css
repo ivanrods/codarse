@@ -1,2 +1,33 @@
 @import "tailwindcss";
 
+:root {
+    --color-text: #ffffff;
+    --color-error: #980000;
+    --color-paper: #232323;
+    --color-primary: #009688;
+    --color-background: #000000;
+    --color-primary-contrast: #ffffff;
+  }
+  
+  html,
+  body {
+    background-color: var(--color-background);
+    color: var(--color-text);
+    width: 100vw;
+    height: 100vh;
+    text-underline-offset: 4px;
+    margin: 0;
+    padding: 0;
+  }
+  
+  a {
+    transition: opacity 0.2s ease-in-out;
+  }
+  
+  a:hover {
+    text-decoration: underline;
+  }
+  
+  a:active {
+    opacity: 0.5;
+  }
