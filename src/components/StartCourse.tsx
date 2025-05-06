@@ -23,7 +23,7 @@ export const StartCourse = ({
     <>
       <div
         ref={ref}
-        className="p-2 bg-neutral-700 rounded-md flex flex-col gap-4"
+        className="p-2 bg-neutral-700 rounded-md flex flex-col gap-4 md:sticky md:top-[104px]"
       >
         <Link
           href={`/player/${idCourse}/${idClass}`}
@@ -38,7 +38,7 @@ export const StartCourse = ({
         </Link>
         <Link
           href={`/player/${idCourse}/${idClass}`}
-          className="bg-teal-600 p-2 px-3 rounded text-center"
+          className="bg-teal-600 p-2 px-3 rounded text-center hover:no-underline"
         >
           Começar curso
         </Link>
@@ -48,7 +48,7 @@ export const StartCourse = ({
           <h1 className="font-extrabold text-xl">{title}</h1>
           <Link
             href={`/player/${idCourse}/${idClass}`}
-            className="bg-teal-600 p-2 px-3 rounded text-center"
+            className="bg-teal-600 p-2 px-3 rounded text-center hover:no-underline"
           >
             Começar curso
           </Link>
