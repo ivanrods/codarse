@@ -1,4 +1,4 @@
-import { ClassGrup } from "@/components/course-content/components/ClassGrup";
+import { CourseContent } from "@/components/course-content/CourseContent";
 import { CourseHeader } from "@/components/course-header/CourseHeader";
 import { StartCourse } from "@/components/StartCourse";
 import { Metadata } from "next";
@@ -27,18 +27,39 @@ export default function PageCurseDetail({ params }: Props) {
         </div>
         <div className="flex-2 flex flex-col gap-4">
           <CourseHeader />
-          <ClassGrup
-            title="Apresentação do curso"
-            courseId="123"
-            classes={[
+          <CourseContent
+            classGrups={[
               {
-                id: "234",
-                title:
-                  "API Rest, Node e Typescript: #00 - Apresentação do curso, tecnologias usadas e muito mais",
-              }, {
-                id: "234",
-                title:
-                  "API Rest, Node e Typescript: #01 - Apresentação do curso, tecnologias usadas e muito mais",
+                courseId: "123",
+                title: "Intrudução",
+                classes: [
+                  {
+                    id: "123",
+                    title:
+                      "NextJS, TailwindCSS e Typescript: #28 - Criando componente de Conteúdo de curso",
+                  },
+                  {
+                    id: "123",
+                    title:
+                      "NextJS, TailwindCSS e Typescript: #28 - Criando componente de Conteúdo de curso",
+                  },
+                ],
+              },
+              {
+                courseId: "123",
+                title: "Primeiras configurações",
+                classes: [
+                  {
+                    id: "123",
+                    title:
+                      "NextJS, TailwindCSS e Typescript: #28 - Criando componente de Conteúdo de curso",
+                  },
+                  {
+                    id: "123",
+                    title:
+                      "NextJS, TailwindCSS e Typescript: #28 - Criando componente de Conteúdo de curso",
+                  },
+                ],
               },
             ]}
           />

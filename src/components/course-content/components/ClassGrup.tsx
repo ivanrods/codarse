@@ -4,7 +4,7 @@ import { MdKeyboardArrowDown, MdKeyboardArrowRight } from "react-icons/md";
 import { Class } from "./Class";
 import { useState } from "react";
 
-interface IClassGrupProps {
+export interface IClassGrupProps {
   title: string;
   courseId: string;
   classes: {
