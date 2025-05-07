@@ -1,4 +1,4 @@
-import { Cless } from "@/components/course-content/components/Cless";
+import { ClassGrup } from "@/components/course-content/components/ClassGrup";
 import { CourseHeader } from "@/components/course-header/CourseHeader";
 import { StartCourse } from "@/components/StartCourse";
 import { Metadata } from "next";
@@ -25,11 +25,22 @@ export default function PageCurseDetail({ params }: Props) {
             imageUrl="https://i.ytimg.com/vi/SVepTuBK4V0/hqdefault.jpg"
           />
         </div>
-        <div className="flex-2">
+        <div className="flex-2 flex flex-col gap-4">
           <CourseHeader />
-          <Cless
-            title="API Rest, Node e Typescript: #00 - Apresentação do curso, tecnologias usadas e muito mais"
-            playerUrl="/player/{courseId}/{classId}"
+          <ClassGrup
+            title="Apresentação do curso"
+            courseId="123"
+            classes={[
+              {
+                id: "234",
+                title:
+                  "API Rest, Node e Typescript: #00 - Apresentação do curso, tecnologias usadas e muito mais",
+              }, {
+                id: "234",
+                title:
+                  "API Rest, Node e Typescript: #01 - Apresentação do curso, tecnologias usadas e muito mais",
+              },
+            ]}
           />
         </div>
       </div>
