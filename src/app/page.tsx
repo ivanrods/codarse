@@ -1,3 +1,4 @@
+import { KeepWatching } from "@/components/KeepWatching";
 import { Section } from "@/components/section/Section";
 import { Metadata } from "next";
 
@@ -7,15 +8,16 @@ export const metadata: Metadata = {
 export default function Home() {
   return (
     <main className="mt-8 flex justify-center">
-      <div className="w-full min-[880px]:max-w-[880px]">
-      <Section
-          variant='h-list'
-          title='Veja mais cursos'
+      <div className="w-full min-[880px]:max-w-[880px] flex flex-col gap-4">
+        <KeepWatching />
+        <Section
+          variant="h-list"
+          title="Veja mais cursos"
           items={[
             {
-              href: '/cursos/123',
-              title: 'Curso de API Rest, Node e Typescript',
-              image: 'https://i.ytimg.com/vi/SVepTuBK4V0/hqdefault.jpg',
+              href: "/cursos/123",
+              title: "Curso de API Rest, Node e Typescript",
+              image: "https://i.ytimg.com/vi/SVepTuBK4V0/hqdefault.jpg",
               description: `
               Na primeira aula do curso de API Rest em Node e Typescript vamos ver juntos o escopo do curso e se esse curso faz sentido para você ou não. Quero te apresentar as tecnologias e conceitos que vamos usar no projeto que será desenvolvido ao longo do curso, ainda vamos entender como serão  criados os testes que usaremos para garantir a qualidade do código e no final vamos ver o frontend que eu vou te entregar de brinde para usar com esse backend.
   
@@ -68,9 +70,9 @@ export default function Home() {
             `,
             },
             {
-              href: '/cursos/123',
-              title: '2 Curso de API Rest, Node e Typescript',
-              image: 'https://i.ytimg.com/vi/SVepTuBK4V0/hqdefault.jpg',
+              href: "/cursos/123",
+              title: "2 Curso de API Rest, Node e Typescript",
+              image: "https://i.ytimg.com/vi/SVepTuBK4V0/hqdefault.jpg",
               description: `
               Na primeira aula do curso de API Rest em Node e Typescript vamos ver juntos o escopo do curso e se esse curso faz sentido para você ou não. Quero te apresentar as tecnologias e conceitos que vamos usar no projeto que será desenvolvido ao longo do curso, ainda vamos entender como serão  criados os testes que usaremos para garantir a qualidade do código e no final vamos ver o frontend que eu vou te entregar de brinde para usar com esse backend.
   
@@ -123,9 +125,9 @@ export default function Home() {
             `,
             },
             {
-              href: '/cursos/123',
-              title: '3 Curso de API Rest, Node e Typescript',
-              image: 'https://i.ytimg.com/vi/SVepTuBK4V0/hqdefault.jpg',
+              href: "/cursos/123",
+              title: "3 Curso de API Rest, Node e Typescript",
+              image: "https://i.ytimg.com/vi/SVepTuBK4V0/hqdefault.jpg",
               description: `
               Na primeira aula do curso de API Rest em Node e Typescript vamos ver juntos o escopo do curso e se esse curso faz sentido para você ou não. Quero te apresentar as tecnologias e conceitos que vamos usar no projeto que será desenvolvido ao longo do curso, ainda vamos entender como serão  criados os testes que usaremos para garantir a qualidade do código e no final vamos ver o frontend que eu vou te entregar de brinde para usar com esse backend.
   
@@ -178,9 +180,9 @@ export default function Home() {
             `,
             },
             {
-              href: '/cursos/123',
-              title: '4 Curso de API Rest, Node e Typescript',
-              image: 'https://i.ytimg.com/vi/SVepTuBK4V0/hqdefault.jpg',
+              href: "/cursos/123",
+              title: "4 Curso de API Rest, Node e Typescript",
+              image: "https://i.ytimg.com/vi/SVepTuBK4V0/hqdefault.jpg",
               description: `
               Na primeira aula do curso de API Rest em Node e Typescript vamos ver juntos o escopo do curso e se esse curso faz sentido para você ou não. Quero te apresentar as tecnologias e conceitos que vamos usar no projeto que será desenvolvido ao longo do curso, ainda vamos entender como serão  criados os testes que usaremos para garantir a qualidade do código e no final vamos ver o frontend que eu vou te entregar de brinde para usar com esse backend.
   
@@ -231,7 +233,7 @@ export default function Home() {
   
               #typescript #cursotypescript #javascript #cursodejavascript #reactetypescript #learningtypescript #learningjavascript
             `,
-            }
+            },
           ]}
         />
       </div>
