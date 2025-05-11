@@ -1,5 +1,5 @@
-'use client'
-import { PlayerHeader, PlayerClass } from "@/components/Player";
+"use client";
+import { PlayerHeader, PlayerGrupClass } from "@/components/Player";
 
 interface Props {
   params: {
@@ -11,7 +11,7 @@ interface Props {
 
 export default function PagePlayer({ params: { classId, courseId } }: Props) {
   return (
-    <>
+    <main className="flex flex-col gap-20">
       <PlayerHeader
         title="NextJS, TailwindCSS e Typescript: #32 - Criando componente de header
           para a tela de player"
@@ -20,14 +20,34 @@ export default function PagePlayer({ params: { classId, courseId } }: Props) {
       <>
         {classId} {courseId}
       </>
-      <PlayerClass
-        playing
-        done={false}
-        onCheck={()=> console.log('check')}
-        onPlay={()=> console.log('play')}
-        title="NextJS, TailwindCSS e Typescript: #33 - Criando componente de aula
-          para a playlist na tela de player"
+      <PlayerGrupClass 
+       open={true}
+       position={1}
+       title='Introdução e apresentação do projeto'
+       onToggle={() => console.log('toggle')}
+       classes={[
+         {
+           done: true,
+           playing: false,
+           title: 'API Rest, Node e Typescript: #00 - Apresentação do curso, tecnologias usadas e muito mais'
+         },
+         {
+           done: false,
+           playing: true,
+           title: 'API Rest, Node e Typescript: #02 - Apresentação do curso, tecnologias usadas e muito mais'
+         },
+         {
+           done: false,
+           playing: false,
+           title: 'API Rest, Node e Typescript: #03 - Apresentação do curso, tecnologias usadas e muito mais'
+         },
+         {
+           done: false,
+           playing: false,
+           title: 'API Rest, Node e Typescript: #04 - Apresentação do curso, tecnologias usadas e muito mais'
+         },
+       ]}
       />
-    </>
+    </main>
   );
 }
