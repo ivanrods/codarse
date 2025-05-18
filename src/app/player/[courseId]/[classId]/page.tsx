@@ -1,8 +1,8 @@
-'use client'
+
 import {
+  PlayerClassDetails,
   PlayerHeader,
   PlayerPlaylist,
-  PlayerVideoPlayer,
 } from "@/components/player";
 
 interface Props {
@@ -14,19 +14,8 @@ interface Props {
 }
 
 export default function PagePlayer({ params: { classId, courseId } }: Props) {
-  return (
-    <main className="flex flex-col gap-2 h-screen">
-      <PlayerHeader
-        title="NextJS, TailwindCSS e Typescript: #32 - Criando componente de header
-          para a tela de player"
-        subtitle="🔔 NextJS, TailwindCSS e Typescript"
-      />
-      <div className="flex gap-2 h-[calc(100vh-72px)]">
-        <div className="max-w-96 ">
-          <PlayerPlaylist
-            playingClassId={classId}
-            playingCourseId={courseId}
-            classGroups={[
+
+  const classGrupsData = [
               {
                 title: "Introdução e apresentação do projeto",
                 classes: [
@@ -85,15 +74,27 @@ export default function PagePlayer({ params: { classId, courseId } }: Props) {
                   },
                 ],
               },
-            ]}
+            ]
+  return (
+    <main className="flex flex-col gap-2 h-screen">
+      <PlayerHeader
+        title="NextJS, TailwindCSS e Typescript: #32 - Criando componente de header
+          para a tela de player"
+        subtitle="🔔 NextJS, TailwindCSS e Typescript"
+      />
+      <div className="flex gap-2 h-[calc(100vh-72px)]">
+        <div className="max-w-96 ">
+          <PlayerPlaylist
+            playingClassId={classId}
+            playingCourseId={courseId}
+            classGroups={classGrupsData}
           />
         </div>
-
-        <div className="flex-1 ">
-          <div className="aspect-video">
-            <PlayerVideoPlayer videoId="Bj1OKr_UKxM" onPlayNext={() => console.log('play')}/>
-          </div>
-        </div>
+        <PlayerClassDetails
+          classGroups={classGrupsData}
+          playingClassId={classId}
+          playingCourseId={courseId}
+        />
       </div>
     </main>
   );
