@@ -94,6 +94,11 @@ export default function PagePlayer({ params: { classId, courseId } }: Props) {
           classGroups={classGrupsData}
           playingClassId={classId}
           playingCourseId={courseId}
+          course={{
+            title:'🔔 NextJS, TailwindCSS e Typescript',
+            description: 'Este curso gratuito é um guia completo para desenvolvedores que desejam construir uma plataforma de cursos online moderna e integrada com a API do YouTube. ',
+            numberOfClasses: 48
+          }}
         />
       </div>
     </main>

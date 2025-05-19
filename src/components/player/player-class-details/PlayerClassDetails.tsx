@@ -5,8 +5,15 @@ import { PlayerGrupClassProps } from "../playlist/components/PlayerGrupClass";
 import { PlayerVideoPlayer } from "./components/PlayerVideoPlayer";
 import { useMemo } from "react";
 import * as Tabs from "@radix-ui/react-tabs";
+import { CourseHeader } from "@/components/course-header/CourseHeader";
 
 interface IPlayerClassDetailsProps {
+  course: {
+    title: string;
+    description: string;
+    numberOfClasses: number;
+  };
+
   playingClassId: string;
   playingCourseId: string;
   classGroups: Pick<PlayerGrupClassProps, "classes" | "title">[];
@@ -15,6 +22,7 @@ export const PlayerClassDetails = ({
   playingCourseId,
   playingClassId,
   classGroups,
+  course,
 }: IPlayerClassDetailsProps) => {
   const router = useRouter();
 
@@ -35,7 +43,7 @@ export const PlayerClassDetails = ({
   }, [classGroups, playingClassId]);
 
   return (
-    <div className="flex-1">
+    <div className="flex-1 overflow-auto pb-10">
       <div className="aspect-video">
         <PlayerVideoPlayer
           videoId="bP47qRVRqQs"
@@ -53,27 +61,33 @@ export const PlayerClassDetails = ({
             value="class-details"
             className="p-2 flex items-center justify-center border-transparent data-[state=active]:border-b-teal-600 border-b-4"
           >
-            Visao geral
+            Visão geral
           </Tabs.Trigger>
 
           <Tabs.Trigger
             value="class-comments"
             className="p-2 flex items-center justify-center border-transparent data-[state=active]:border-b-teal-600 border-b-4"
           >
-            Comentarios
+            Comentários
           </Tabs.Trigger>
 
           <Tabs.Trigger
             value="course-details"
             className="p-2 flex items-center justify-center border-transparent data-[state=active]:border-b-teal-600 border-b-4"
           >
-            Visao geral do curso
+            Visão geral do curso
           </Tabs.Trigger>
         </Tabs.TabsList>
         <hr className="border- border-neutral-500" />
         <Tabs.Content value="class-details">Detalhes da aula</Tabs.Content>
         <Tabs.Content value="class-comments">Comentarios da aula</Tabs.Content>
-        <Tabs.Content value="course-details">Detalhes curso</Tabs.Content>
+        <Tabs.Content value="course-details">
+          <CourseHeader
+            title={course.title}
+            description={course.description}
+            numberOfClasses={course.numberOfClasses}
+          />
+        </Tabs.Content>
       </Tabs.Root>
     </div>
   );
