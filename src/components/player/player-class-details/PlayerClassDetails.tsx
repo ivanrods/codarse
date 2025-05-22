@@ -10,6 +10,7 @@ import {
 import { PlayerGrupClassProps } from "../playlist/components/PlayerGrupClass";
 import { CourseHeader } from "@/components/course-header/CourseHeader";
 import { PlayerClassHeader } from "./components/PlayerClassHeader";
+import { Comments } from "./components/comments/Comments";
 
 interface IPlayerClassDetailsProps {
   course: {
@@ -56,7 +57,7 @@ export const PlayerClassDetails = ({
     <div className="flex-1 overflow-auto pb-10">
       <div className="aspect-video">
         <PlayerVideoPlayer
-          videoId="bP47qRVRqQs"
+          videoId="bP47qRVRq_Qs"
           ref={playerVideoPlayerRef}
           onPlayNext={() =>
             nextClassId
@@ -78,7 +79,7 @@ export const PlayerClassDetails = ({
             value="class-comments"
             className="p-2 flex items-center justify-center border-b-4 border-transparent data-[state=active]:border-primary"
           >
-            Comentários
+           Comentários
           </Tabs.Trigger>
           <Tabs.Trigger
             value="course-details"
@@ -90,7 +91,7 @@ export const PlayerClassDetails = ({
 
         <hr className="border-paper mb-2" />
 
-        <Tabs.Content value="class-details">
+        <Tabs.Content value="class-details" className="px-2">
           <PlayerClassHeader
             title={classItem.title}
             description={classItem.description}
@@ -99,8 +100,8 @@ export const PlayerClassDetails = ({
             }
           />
         </Tabs.Content>
-        <Tabs.Content value="class-comments">Comentários da aula</Tabs.Content>
-        <Tabs.Content value="course-details">
+        <Tabs.Content value="class-comments" className="px-2"><Comments /></Tabs.Content>
+        <Tabs.Content value="course-details" className="px-2">
           <CourseHeader
             title={course.title}
             description={course.description}
