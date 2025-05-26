@@ -57,7 +57,7 @@ export const PlayerClassDetails = ({
     <div className="flex-1 overflow-auto pb-10">
       <div className="aspect-video">
         <PlayerVideoPlayer
-          videoId="bP47qRVRq_Qs"
+          videoId="bP47qRVRqQs"
           ref={playerVideoPlayerRef}
           onPlayNext={() =>
             nextClassId
@@ -79,7 +79,7 @@ export const PlayerClassDetails = ({
             value="class-comments"
             className="p-2 flex items-center justify-center border-b-4 border-transparent data-[state=active]:border-primary"
           >
-           Comentários
+            Comentários
           </Tabs.Trigger>
           <Tabs.Trigger
             value="course-details"
@@ -100,7 +100,91 @@ export const PlayerClassDetails = ({
             }
           />
         </Tabs.Content>
-        <Tabs.Content value="class-comments" className="px-2"><Comments /></Tabs.Content>
+        <Tabs.Content value="class-comments" className="px-2">
+          <Comments
+            comments={[
+              {
+                likesCount: 15,
+                replies: undefined,
+                content: "My comment",
+                publishDate: "2024-09-09T20:16:37Z",
+                author: {
+                  userName: "@LucasSouzaDev",
+                  image:
+                    "https://avatars.githubusercontent.com/u/67488687?v=4",
+                },
+              },
+              {
+                likesCount: 15,
+                content: "My comment",
+                publishDate: "2024-09-09T20:16:37Z",
+                author: {
+                  userName: "@LucasSouzaDev",
+                  image:
+                    "https://avatars.githubusercontent.com/u/67488687?v=4",
+                },
+                replies: [
+                  {
+                    likesCount: 15,
+                    replies: undefined,
+                    content: "My reply",
+                    publishDate: "2024-09-09T20:16:37Z",
+                    author: {
+                      userName: "@LucasSouzaDev",
+                      image:
+                        "https://avatars.githubusercontent.com/u/67488687?v=4",
+                    },
+                  },
+                  {
+                    likesCount: 15,
+                    replies: undefined,
+                    content: "My reply",
+                    publishDate: "2024-09-09T20:16:37Z",
+                    author: {
+                      userName: "@LucasSouzaDev",
+                      image:
+                        "https://avatars.githubusercontent.com/u/67488687?v=4",
+                    },
+                  },
+                ],
+              },
+              {
+                likesCount: 15,
+                content: "My comment",
+                publishDate: "2024-09-09T20:16:37Z",
+                author: {
+                  userName: "@LucasSouzaDev",
+                  image:
+                    "https://avatars.githubusercontent.com/u/67488687?v=4",
+                },
+                replies: [
+                  {
+                    likesCount: 15,
+                    replies: undefined,
+                    content: "My reply",
+                    publishDate: "2024-09-09T20:16:37Z",
+                    author: {
+                      userName: "@LucasSouzaDev",
+                      image:
+                        "https://avatars.githubusercontent.com/u/67488687?v=4",
+                    },
+                  },
+                  {
+                    likesCount: 15,
+                    replies: undefined,
+                    content: "My reply",
+                    publishDate: "2024-09-09T20:16:37Z",
+                    author: {
+                      userName: "@LucasSouzaDev",
+                      image:
+                        "https://avatars.githubusercontent.com/u/67488687?v=4",
+                    },
+                  },
+                ],
+              },
+            ]}
+          />
+        </Tabs.Content>
         <Tabs.Content value="course-details" className="px-2">
           <CourseHeader
             title={course.title}
