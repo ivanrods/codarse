@@ -1,15 +1,18 @@
-import { Section } from "@/components/section/Section";
 import { Metadata } from "next";
+
 import { APIYouTube } from "@/shared/services/api-youtube";
+import { Section } from "@/components/section/Section";
+
 export const metadata: Metadata = {
   title: "CodarSe - Todos os cursos",
 };
 
 export default async function PageCursos() {
   const courses = await APIYouTube.course.getAll();
+
   return (
     <main className="mt-8 flex justify-center">
-      <div className="min-[880px]:max-w-[880px]">
+      <div className="w-full min-[880px]:max-w-[880px]">
         <Section
           variant="grid"
           title="Todos os cursos"
