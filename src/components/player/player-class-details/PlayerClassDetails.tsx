@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { MdComment, MdThumbUp, MdVisibility } from "react-icons/md";
 import * as Tabs from "@radix-ui/react-tabs";
 import { useRouter } from "next/navigation";
@@ -12,6 +12,7 @@ import {
 import { CourseHeaderLoading } from "@/components/course-header/CourseHeaderLoading";
 import { PlayerGrupClassProps } from "../playlist/components/PlayerGrupClass";
 import { PlayerClassHeader } from "./components/PlayerClassHeader";
+import { LocalStorage } from "@/shared/services/local-storage";
 import { ICommentProps } from "./components/comments/Comment";
 import { PlayerPlaylist } from "../playlist/PlayerPlaylist";
 import { Comments } from "./components/comments/Comments";
@@ -67,6 +68,15 @@ export const PlayerClassDetails = ({
     return () => matchMedia.removeEventListener("change", handleMatchMedia);
   }, [currentTab]);
 
+  useEffect(() => {
+    LocalStorage.keepWatching.set({
+      classId: classItem.id,
+      courseId: course.id,
+      className: classItem.title,
+      courseName: course.title,
+    });
+  }, [course.id, course.title, classItem.id, classItem.title]);
+
   const nextClassId = useMemo(() => {
     const classes = course.classGroups.flatMap(
       (classGroup) => classGroup.classes
@@ -85,17 +95,20 @@ export const PlayerClassDetails = ({
     return classes[nextClassIndex].classId;
   }, [course.classGroups, classItem.id]);
 
+  const handlePlayerNext = useCallback(() => {
+    if (!nextClassId) return;
+
+    LocalStorage.watchedContent.toggle(course.id, classItem.id, "add");
+    router.push(`/player/${course.id}/${nextClassId}`);
+  }, [course.id, classItem.id, nextClassId, router]);
+
   return (
     <div className="flex-1 overflow-auto pb-10">
       <div className="aspect-video">
         <PlayerVideoPlayer
           ref={playerVideoPlayerRef}
           videoId={classItem.videoId}
-          onPlayNext={() =>
-            nextClassId
-              ? router.push(`/player/${course.id}/${nextClassId}`)
-              : {}
-          }
+          onPlayNext={handlePlayerNext}
         />
       </div>
 
