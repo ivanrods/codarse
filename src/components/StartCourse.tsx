@@ -1,8 +1,7 @@
 "use client";
 import Link from "next/link";
-import { MdPlayCircleOutline } from "react-icons/md";
-
 import { useInView } from "react-intersection-observer";
+import { MdPlayCircleOutline } from "react-icons/md";
 
 interface IStartCourseProps {
   title: string;
@@ -10,12 +9,11 @@ interface IStartCourseProps {
   idCourse: string;
   imageUrl: string;
 }
-
 export const StartCourse = ({
-  title,
   idClass,
   idCourse,
   imageUrl,
+  title,
 }: IStartCourseProps) => {
   const [ref, inView] = useInView({ threshold: 0.2, initialInView: true });
 
@@ -23,32 +21,33 @@ export const StartCourse = ({
     <>
       <div
         ref={ref}
-        className="p-2 bg-neutral-700 rounded-md flex flex-col gap-4 md:sticky md:top-[104px]"
+        className="p-3 bg-paper rounded-md flex flex-col gap-4 md:sticky md:top-[104px]"
       >
         <Link
           href={`/player/${idCourse}/${idClass}`}
-          style={{
-            backgroundImage: `url(${imageUrl})`,
-          }}
+          style={{ backgroundImage: `url(${imageUrl})` }}
           className="w-full bg-cover bg-no-repeat aspect-video bg-center rounded"
         >
-          <div className="w-full h-full flex items-center justify-center bg-black rounded opacity-0 hover:opacity-70 transition">
+          <div className="w-full h-full flex items-center justify-center bg-background rounded opacity-0 hover:opacity-70 transition-opacity">
             <MdPlayCircleOutline size={58} />
           </div>
         </Link>
+
         <Link
           href={`/player/${idCourse}/${idClass}`}
-          className="bg-teal-600 p-2 px-3 rounded text-center hover:no-underline"
+          className="bg-primary p-2 px-3 rounded text-center hover:no-underline"
         >
           Começar curso
         </Link>
       </div>
+
       {!inView && (
-        <div className="p-3 px-2 bg-neutral-900 flex flex-col gap-4 absolute left-0 right-0 top-14">
+        <div className="p-3 px-2 bg-paper flex flex-col gap-4 absolute left-0 right-0 top-14">
           <h1 className="font-extrabold text-xl">{title}</h1>
+
           <Link
             href={`/player/${idCourse}/${idClass}`}
-            className="bg-teal-600 p-2 px-3 rounded text-center hover:no-underline"
+            className="bg-primary p-2 px-3 rounded text-center hover:no-underline"
           >
             Começar curso
           </Link>

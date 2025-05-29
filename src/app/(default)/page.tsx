@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   title: "CodarSe - Página inicial",
 };
 
-export default async function PageHome() {
+export default async function Home() {
   const courses = await APIYouTube.course.getAll();
 
   return (
