@@ -1,7 +1,7 @@
 "use client";
 import { MdShare } from "react-icons/md";
 
-import { CollapsinbleText } from "./components/CollapsinbleText";
+import { CollapsibleText } from "./components/CollapsibleText";
 import { ContentCopy } from "./components/CopyContext";
 
 interface ICourseHeaderProps {
@@ -18,9 +18,9 @@ export const CourseHeader = ({
     <div className="flex flex-col gap-2">
       <h1 className="font-extrabold text-xl">{title}</h1>
 
-      <CollapsinbleText numberOfLinesWhenClosed={3}>
+      <CollapsibleText numberOfLinesWhenClosed={3}>
         {description}
-      </CollapsinbleText>
+      </CollapsibleText>
 
       <div className="flex gap-2 items-center">
         <ContentCopy title="Copie o link abaixo" content={window.location.href}>

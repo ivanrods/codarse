@@ -10,7 +10,7 @@ import {
   PlayerVideoPlayer,
 } from "./components/PlayerVideoPlayer";
 import { CourseHeaderLoading } from "@/components/course-header/CourseHeaderLoading";
-import { PlayerGrupClassProps } from "../playlist/components/PlayerGrupClass";
+import { IPlayerClassGroupProps } from "../playlist/components/PlayerClassGroup";
 import { PlayerClassHeader } from "./components/PlayerClassHeader";
 import { LocalStorage } from "@/shared/services/local-storage";
 import { ICommentProps } from "./components/comments/Comment";
@@ -31,7 +31,7 @@ interface IPlayerClassDetailsProps {
     title: string;
     description: string;
     numberOfClasses: number;
-    classGroups: Pick<PlayerGrupClassProps, "classes" | "title">[];
+    classGroups: Pick<IPlayerClassGroupProps, "classes" | "title">[];
   };
   classItem: {
     id: string;

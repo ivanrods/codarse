@@ -1,7 +1,8 @@
 "use client";
-import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from "react-icons/md";
-import { Card, ICardProps } from "../Card/Card";
 import { UIEvent, useRef, useState } from "react";
+import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from "react-icons/md";
+
+import { Card, ICardProps } from "../card/Card";
 
 interface ISectionProps {
   title: string;
@@ -39,16 +40,16 @@ export const Section = ({ title, items, variant = "grid" }: ISectionProps) => {
       <h2 className="font-bold text-xl">{title}</h2>
 
       <ul
-        onScroll={handleScroll}
         ref={scrollRef}
         data-variant={variant}
-        className=" grid gap-2 grid-cols-1 sm:grid-cols-none data-[variant=grid]:sm:grid-cols-2 data-[variant=grid]:md:grid-cols-3 data-[variant=h-list]:sm:grid-flow-col data-[variant=h-list]:sm:overflow-x-auto"
+        onScroll={handleScroll}
+        className="grid gap-2 grid-cols-1 sm:grid-cols-none data-[variant=grid]:sm:grid-cols-2 data-[variant=grid]:md:grid-cols-3 data-[variant=h-list]:sm:grid-flow-col data-[variant=h-list]:sm:overflow-x-auto"
       >
         {variant === "h-list" && (
           <button
             disabled={scrollAt === "start"}
             onClick={() => handleSetScroll(-350)}
-            className="h-14 w-14 bg-teal-600 rounded-full hidden sm:flex justify-center items-center sticky my-auto left-0 -ml-14 disabled:opacity-0 transition-opacity active:opacity-80"
+            className="h-14 w-14 bg-primary rounded-full hidden sm:flex items-center justify-center sticky my-auto left-0 -ml-14 transition-opacity disabled:opacity-0 active:opacity-80"
           >
             <MdKeyboardArrowLeft size={32} />
           </button>
@@ -73,7 +74,7 @@ export const Section = ({ title, items, variant = "grid" }: ISectionProps) => {
           <button
             disabled={scrollAt === "end"}
             onClick={() => handleSetScroll(350)}
-            className="h-14 w-14 bg-teal-600 rounded-full hidden sm:flex justify-center items-center sticky my-auto right-0 -ml-14 disabled:opacity-0 transition-opacity active:opacity-80"
+            className="h-14 w-14 bg-primary rounded-full hidden sm:flex items-center justify-center sticky my-auto right-0 -ml-14 transition-opacity disabled:opacity-0 active:opacity-80"
           >
             <MdKeyboardArrowRight size={32} />
           </button>

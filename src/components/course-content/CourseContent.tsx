@@ -1,17 +1,19 @@
-import { ClassGrup, IClassGrupProps } from "./components/ClassGrup";
+import { ClassGroup, IClassGroupProps } from './components/ClassGroup';
+
 
 interface ICourseContentProps {
-  classGrups: IClassGrupProps[];
+  classGroups: IClassGroupProps[];
 }
+export const CourseContent = ({ classGroups }: ICourseContentProps) => {
 
-export const CourseContent = ({ classGrups }: ICourseContentProps) => {
   return (
-    <div className="flex flex-col gap-4">
-      <h2 className="text-lg font-extrabold ">Conteúdo do curso</h2>
-      <ol className="flex flex-col rounded-lg overflow-clip">
-        {classGrups.map((classGrup) => (
-          <li key={classGrup.title} className="flex flex-col">
-            <ClassGrup {...classGrup} />
+    <div className='flex flex-col gap-4'>
+      <h2 className='text-lg font-extrabold'>Conteúdo do curso</h2>
+
+      <ol className='flex flex-col rounded-lg overflow-clip'>
+        {classGroups.map(classGroup => (
+          <li key={classGroup.title} className='flex flex-col'>
+            <ClassGroup {...classGroup} />
           </li>
         ))}
       </ol>

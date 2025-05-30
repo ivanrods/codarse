@@ -45,7 +45,7 @@ export const PlayerClassHeader = ({
       createElement: (children, props) => (
         <button
           key={props.key}
-          className="text-teal-600 hover:underline"
+          className="text-primary hover:underline"
           onClick={() => handleTimeClick(String(children))}
         >
           {children}

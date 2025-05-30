@@ -1,13 +1,13 @@
-import { Header } from "@/components/header/Header";
+import { Header } from '@/components/header/Header';
 
-export default function Layout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+
+interface ILayout extends Readonly<{ children: React.ReactNode }> { }
+
+export default function Layout({ children }: ILayout) {
   return (
     <>
       <Header />
+
       {children}
     </>
   );

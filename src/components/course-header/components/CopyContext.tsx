@@ -33,7 +33,7 @@ export const ContentCopy = ({ title, children, content }: IContentCopyProps) => 
       </DropdownMenu.Trigger>
 
       <DropdownMenu.Portal>
-        <DropdownMenu.Content className='p-2 bg-neutral-700 border border-teal-500 rounded-lg flex flex-col gap-2 min-w-72 max-w-sm'>
+        <DropdownMenu.Content className='p-2 bg-paper border border-primary rounded-lg flex flex-col gap-2 min-w-72 max-w-sm'>
           <span>{title}</span>
 
           <div className='flex items-center gap-1'>
@@ -42,7 +42,7 @@ export const ContentCopy = ({ title, children, content }: IContentCopyProps) => 
               autoFocus
               value={content}
               onFocus={e => e.target.select()}
-              className='bg-black p-1 px-2 rounded w-full'
+              className='bg-background p-1 px-2 rounded w-full'
             />
 
             <button className='p-2' onClick={handleCopy}>

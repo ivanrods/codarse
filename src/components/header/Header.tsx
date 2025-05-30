@@ -1,12 +1,12 @@
 "use client";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
-import { MdMenu, MdOpenInNew } from "react-icons/md";
+import { MdMenu, MdOutlineOpenInNew } from "react-icons/md";
+import { usePathname } from "next/navigation";
+import Link from "next/link";
 
 export const Header = () => {
-  const [drawer, setDrawer] = useState(false);
   const [title, setTitle] = useState("CodarSe");
+  const [drawer, setDrawer] = useState(false);
   const currentPath = usePathname();
 
   useEffect(() => {
@@ -20,63 +20,68 @@ export const Header = () => {
         setDrawer(false);
       }
     };
+
     window.addEventListener("keydown", handle);
     return () => window.removeEventListener("keydown", handle);
   }, []);
 
   return (
     <>
-      <nav className="fixed top-0 right-0 left-0 flex items-center gap-6 justify-start md:justify-center bg-teal-600 py-2 sm:py-4 px-6 ">
+      <nav className="flex items-center gap-6 justify-start fixed top-0 right-0 left-0 md:justify-center bg-primary py-2 sm:py-4 px-6">
         <button className="sm:hidden" onClick={() => setDrawer(true)}>
           <MdMenu size={24} />
         </button>
+
         <ul
-          className="flex items-center gap-4 "
+          className="flex gap-4 items-center"
           tabIndex={drawer ? -1 : undefined}
         >
-          <li className="my-2 ">
-            <Link href="/" className="border-2 rounded-md py-2 px-2 font-bold ">
+          <li className="my-2">
+            <Link href="/" className="border-2 rounded-md py-2 px-1 font-bold">
               CODARSE
             </Link>
           </li>
+
           <li className="hidden sm:block">
             <Link
               href="/"
               data-active={currentPath === "/"}
-              className="data-[active=true]:underline underline-offset-4"
+              className="data-[active=true]:underline outline-offset-4"
             >
-              Pagina inicial
+              Página inicial
             </Link>
           </li>
           <li className="hidden sm:block">
             <Link
               href="/cursos"
               data-active={currentPath === "/cursos"}
-              className="data-[active=true]:underline underline-offset-4"
+              className="data-[active=true]:underline outline-offset-4"
             >
               Cursos
             </Link>
           </li>
+
           <li className="hidden sm:block">
             <Link
               href="https://blog.codarse.com"
               target="_blank"
-              className="flex items-center gap-1 underline-offset-4"
+              className="flex gap-1 items-center outline-offset-4"
             >
               Blog
-              <MdOpenInNew />
+              <MdOutlineOpenInNew />
             </Link>
           </li>
         </ul>
+
         <div
           data-open={drawer}
           onClick={() => setDrawer(false)}
           tabIndex={drawer ? undefined : -1}
-          className="sm:hidden bg-gradient-to-r from-black fixed top-0 left-0 bottom-0 right-0 transition-transform data-[open=false]:-translate-x-full"
+          className="sm:hidden bg-gradient-to-r from-background fixed top-0 left-0 bottom-0 right-0 transition-transform data-[open=false]:-translate-x-full"
         >
           <ul
-            onClick={(e) => e.stopPropagation()}
-            className="h-full flex flex-col p-4 w-60 gap-4   bg-black"
+            className="flex gap-4 flex-col p-4 w-60 h-full bg-background"
+            onClick={(event) => event.stopPropagation()}
           >
             <li className="">
               <Link
@@ -84,7 +89,7 @@ export const Header = () => {
                 data-active={currentPath === "/"}
                 className="data-[active=true]:underline"
               >
-                Pagina inicial
+                Página inicial
               </Link>
             </li>
             <li className="">
@@ -96,14 +101,15 @@ export const Header = () => {
                 Cursos
               </Link>
             </li>
+
             <li className="">
               <Link
                 href="https://blog.codarse.com"
                 target="_blank"
-                className="flex items-center gap-1"
+                className="flex gap-1 items-center"
               >
                 Blog
-                <MdOpenInNew />
+                <MdOutlineOpenInNew />
               </Link>
             </li>
           </ul>
